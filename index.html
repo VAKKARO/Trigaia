@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundi Llumgaia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-audio" src="public/assets/ambientefinal.mp3" autoplay loop></audio>
+    
+    <div id="app">
+        <div id="scene-map" class="scene active">
+            <img src="public/assets/map_new.png" alt="Mapa de Llumgaia" class="background-img">
+            <div id="sakurania-hitbox"></div>
+        </div>
+
+        <div id="scene-sakurania" class="scene">
+            <img src="public/assets/sakurania_bg_new.jpg" alt="Fondo Sakurania" class="background-img">
+            
+            <img src="public/assets/sakurania_neutral.png" alt="Niña Sakurania" id="sakurania-character">
+            <img src="public/assets/bowl.png" alt="Cuenco" id="sakurania-bowl">
+            
+            <div id="sakurania-dragon-container" class="dragon-container">
+                <img src="public/assets/dragon_f1.png" alt="Dragón F1" class="dragon-frame">
+                <img src="public/assets/dragon_f2.png" alt="Dragón F2" class="dragon-frame">
+                <img src="public/assets/dragon_f3.png" alt="Dragón F3" class="dragon-frame">
+                <img src="public/assets/dragon_f4.png" alt="Dragón F4" class="dragon-frame">
+            </div>
+
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-1">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-2">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-3">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-4">
+            
+            <div id="sakurania-progress-container">
+                <div id="progress-layer-empty" class="progress-layer"></div>
+                <div id="sakurania-progress-bar" class="progress-layer"></div>
+            </div>
+            
+            <div id="sakura-rain-container"></div>
+            <button id="sakurania-reset-button" class="hidden">VOLVER</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
