@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundi Llumgaia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bg-audio" src="public/assets/ambientefinal.mp3" autoplay loop></audio>
+    
+    <div id="app">
+        <!-- SCENE: MAP -->
+        <div id="scene-map" class="scene active">
+            <img src="public/assets/map_new.png" alt="Mapa de Llumgaia" class="background-img">
+            <div id="sakurania-hitbox" class="continent-hitbox">
+                <svg class="hex-indicator hex-pink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                    <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" />
+                </svg>
+            </div>
+            <div id="nayadia-hitbox" class="continent-hitbox">
+                <svg class="hex-indicator hex-blue" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                    <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" />
+                </svg>
+            </div>
+            <div id="narcisa-hitbox" class="continent-hitbox">
+                <svg class="hex-indicator hex-yellow" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+                    <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- SCENE: SAKURANIA -->
+        <div id="scene-sakurania" class="scene">
+            <img src="public/assets/sakurania_bg_new.jpg" alt="Fondo Sakurania" class="background-img">
+            
+            <img src="public/assets/sakurania_neutral.png" alt="Niña Sakurania" id="sakurania-character">
+            <img src="public/assets/nayadia_bowl.png" alt="Cuenco" id="sakurania-bowl">
+            
+            <div id="sakurania-dragon-container" class="dragon-container">
+                <img src="public/assets/dragon_nayadia_1.png" alt="Dragón 1" class="dragon-frame-5" id="saku_dragon_1">
+                <img src="public/assets/dragon_nayadia_2.png" alt="Dragón 2" class="dragon-frame-5" id="saku_dragon_2">
+                <img src="public/assets/dragon_nayadia_3.png" alt="Dragón 3" class="dragon-frame-5" id="saku_dragon_3">
+                <img src="public/assets/dragon_nayadia_4.png" alt="Dragón 4" class="dragon-frame-5" id="saku_dragon_4">
+                <img src="public/assets/dragon_nayadia_5.png" alt="Dragón 5" class="dragon-frame-5" id="saku_dragon_5">
+            </div>
+
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-1">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-2">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-3">
+            <img src="public/assets/sakura_flower.png" class="draggable-flower" id="flower-4">
+            
+            <div id="sakurania-progress-container">
+                <div id="progress-layer-empty" class="progress-layer"></div>
+                <div id="sakurania-progress-bar" class="progress-layer"></div>
+            </div>
+            
+            <div id="sakura-rain-container"></div>
+            <button id="sakurania-reset-button" class="hidden">VOLVER</button>
+        </div>
+
+        <!-- SCENE: NAYADIA -->
+        <div id="scene-nayadia" class="scene">
+            <img src="public/assets/sakurania_bg_new.jpg" alt="Fondo Nayadia" class="background-img">
+            <div class="sky-filter-nayadia"></div>
+            
+            <img src="public/assets/nayadia_neutral.png" alt="Niña Nayadia" id="nayadia-character">
+            <img src="public/assets/nayadia_bowl.png" alt="Cuenco" id="nayadia-bowl">
+            
+            <div id="nayadia-dragon-container" class="dragon-container">
+                <img src="public/assets/dragon_nayadia_1.png" alt="Dragón Nayadia 1" class="dragon-frame-5" id="dragon_nayadia_1">
+                <img src="public/assets/dragon_nayadia_2.png" alt="Dragón Nayadia 2" class="dragon-frame-5" id="dragon_nayadia_2">
+                <img src="public/assets/dragon_nayadia_3.png" alt="Dragón Nayadia 3" class="dragon-frame-5" id="dragon_nayadia_3">
+                <img src="public/assets/dragon_nayadia_4.png" alt="Dragón Nayadia 4" class="dragon-frame-5" id="dragon_nayadia_4">
+                <img src="public/assets/dragon_nayadia_5.png" alt="Dragón Nayadia 5" class="dragon-frame-5" id="dragon_nayadia_5">
+            </div>
+
+            <img src="public/assets/nayadia_flower.png" class="draggable-flower nayadia-flower" id="nayadia-flower-1">
+            <img src="public/assets/nayadia_flower.png" class="draggable-flower nayadia-flower" id="nayadia-flower-2">
+            <img src="public/assets/nayadia_flower.png" class="draggable-flower nayadia-flower" id="nayadia-flower-3">
+            <img src="public/assets/nayadia_flower.png" class="draggable-flower nayadia-flower" id="nayadia-flower-4">
+            
+            <div id="nayadia-progress-container">
+                <img src="public/assets/nayadia_bar_frame.png" id="nayadia-bar-img" alt="Barra de Nayadia">
+                <div id="nayadia-slot-mask">
+                    <div id="nayadia-progress-bar"></div>
+                </div>
+            </div>
+            
+            <div id="nayadia-rain-container"></div>
+            <button id="nayadia-reset-button" class="hidden">VOLVER</button>
+        </div>
+
+        <!-- SCENE: NARCISA -->
+        <div id="scene-narcisa" class="scene">
+            <img src="public/assets/sakurania_bg_new.jpg" alt="Fondo Narcisa" class="background-img">
+            <div class="sky-filter-narcisa"></div>
+            
+            <img src="public/assets/narcisa_neutral.png" alt="Niño Narcisa" id="narcisa-character">
+            <img src="public/assets/nayadia_bowl.png" alt="Cuenco" id="narcisa-bowl">
+            
+            <div id="narcisa-dragon-container" class="dragon-container">
+                <img src="public/assets/dragon_nayadia_1.png" alt="Dragón Narcisa 1" class="dragon-frame-5" id="dragon_narcisa_1">
+                <img src="public/assets/dragon_nayadia_2.png" alt="Dragón Narcisa 2" class="dragon-frame-5" id="dragon_narcisa_2">
+                <img src="public/assets/dragon_nayadia_3.png" alt="Dragón Narcisa 3" class="dragon-frame-5" id="dragon_narcisa_3">
+                <img src="public/assets/dragon_nayadia_4.png" alt="Dragón Narcisa 4" class="dragon-frame-5" id="dragon_narcisa_4">
+                <img src="public/assets/dragon_nayadia_5.png" alt="Dragón Narcisa 5" class="dragon-frame-5" id="dragon_narcisa_5">
+            </div>
+
+            <img src="public/assets/narcisa_flower.png" class="draggable-flower narcisa-flower" id="narcisa-flower-1">
+            <img src="public/assets/narcisa_flower.png" class="draggable-flower narcisa-flower" id="narcisa-flower-2">
+            <img src="public/assets/narcisa_flower.png" class="draggable-flower narcisa-flower" id="narcisa-flower-3">
+            <img src="public/assets/narcisa_flower.png" class="draggable-flower narcisa-flower" id="narcisa-flower-4">
+            
+            <div id="narcisa-progress-container">
+                <img src="public/assets/nayadia_bar_frame.png" id="narcisa-bar-img" alt="Barra de Narcisa">
+                <div id="narcisa-slot-mask">
+                    <div id="narcisa-progress-bar"></div>
+                </div>
+            </div>
+            
+            <div id="narcisa-rain-container"></div>
+            <button id="narcisa-reset-button" class="hidden">VOLVER</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
